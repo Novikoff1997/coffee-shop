@@ -13,7 +13,7 @@
             <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo" />
             <div class="preview__subtitle">We makes every day full of energy and taste</div>
             <div class="preview__subtitle">Want to try our beans?</div>
-            <a href="./coffeepage.html" class="preview__btn">More</a>
+            <router-link to="/our-coffee" class="preview__btn">More</router-link>
           </div>
         </div>
       </div>
