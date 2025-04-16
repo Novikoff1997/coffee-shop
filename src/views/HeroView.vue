@@ -9,7 +9,7 @@
         </div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <h1 class="title-big">Everything You Love About Coffee</h1>
+            <page-title-component :text="title" />
             <img class="beanslogo" src="@/assets/logo/Beans_logo.svg" alt="Beans logo" />
             <div class="preview__subtitle">We makes every day full of energy and taste</div>
             <div class="preview__subtitle">Want to try our beans?</div>
@@ -47,9 +47,24 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <product-card-component />
-              <product-card-component />
-              <product-card-component />
+              <product-card-component
+                classItem="best__item"
+                :title="bestsellers[0].title"
+                :price="bestsellers[0].price"
+                :img="bestsellers[0].img"
+              />
+              <product-card-component
+                classItem="best__item"
+                :title="bestsellers[1].title"
+                :price="bestsellers[1].price"
+                :img="bestsellers[1].img"
+              />
+              <product-card-component
+                classItem="best__item"
+                :title="bestsellers[2].title"
+                :price="bestsellers[2].price"
+                :img="bestsellers[2].img"
+              />
             </div>
           </div>
         </div>
@@ -61,13 +76,15 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCardComponent from "@/components/ProductCardComponent.vue";
+import PageTitleComponent from "@/components/PageTitleComponent.vue";
 
 export default {
-  components: { NavBarComponent, ProductCardComponent },
+  components: { NavBarComponent, ProductCardComponent, PageTitleComponent },
 
   data() {
     return {
-      products: [
+      title: "PageTitleComponent",
+      bestsellers: [
         {
           id: 0,
           title: "Solimo Coffee Beans 2kg",

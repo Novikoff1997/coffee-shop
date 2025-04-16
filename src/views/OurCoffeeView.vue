@@ -7,7 +7,7 @@
             <nav-bar-component />
           </div>
         </div>
-        <h1 class="title-big">Our Coffee</h1>
+        <page-title-component :text="title" />
       </div>
     </div>
     <section class="shop">
@@ -57,12 +57,42 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <product-card-component />
-              <product-card-component />
-              <product-card-component />
-              <product-card-component />
-              <product-card-component />
-              <product-card-component />
+              <product-card-component
+                classItem="shop__item"
+                :title="coffee[0].title"
+                :price="coffee[0].price"
+                :img="coffee[0].img"
+              />
+              <product-card-component
+                classItem="shop__item"
+                :title="coffee[1].title"
+                :price="coffee[1].price"
+                :img="coffee[1].img"
+              />
+              <product-card-component
+                classItem="shop__item"
+                :title="coffee[2].title"
+                :price="coffee[2].price"
+                :img="coffee[2].img"
+              />
+              <product-card-component
+                classItem="shop__item"
+                :title="coffee[3].title"
+                :price="coffee[3].price"
+                :img="coffee[3].img"
+              />
+              <product-card-component
+                classItem="shop__item"
+                :title="coffee[4].title"
+                :price="coffee[4].price"
+                :img="coffee[4].img"
+              />
+              <product-card-component
+                classItem="shop__item"
+                :title="coffee[5].title"
+                :price="coffee[5].price"
+                :img="coffee[5].img"
+              />
             </div>
           </div>
         </div>
@@ -74,26 +104,28 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCardComponent from "@/components/ProductCardComponent.vue";
+import PageTitleComponent from "@/components/PageTitleComponent.vue";
 
 export default {
-  components: { NavBarComponent, ProductCardComponent },
+  components: { NavBarComponent, ProductCardComponent, PageTitleComponent },
 
   data() {
     return {
-      products: [
+      title: "Our Coffee",
+      coffee: [
         {
           id: 0,
           title: "Solimo Coffee Beans 2kg",
           country: "Brazil",
           price: 10.73,
-          img: "coffee-3.jpg",
+          img: "coffee-1.jpg",
         },
         {
           id: 1,
           title: "Presto Coffee Beans 1kg",
           country: "Brazil",
           price: 15.99,
-          img: "coffee-3.jpg",
+          img: "coffee-2.jpg",
         },
         {
           id: 2,
@@ -107,14 +139,14 @@ export default {
           title: "Black Rifle Coffee",
           country: "Kenya",
           price: 10.73,
-          img: "coffee-3.jpg",
+          img: "coffee-1.jpg",
         },
         {
           id: 4,
           title: "Presto Coffee Beans 1 kg",
           country: "Columbia",
           price: 15.99,
-          img: "coffee-3.jpg",
+          img: "coffee-2.jpg",
         },
         {
           id: 5,
