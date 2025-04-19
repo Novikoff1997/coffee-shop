@@ -103,12 +103,9 @@ export default {
   },
   methods: {
     resetForm() {
-      this.form = {
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-      };
+      Object.keys(this.form).forEach((key) => {
+        this.form[key] = "";
+      });
     },
     logger() {
       console.log(this.form);
