@@ -68,53 +68,14 @@ import PageTitleComponent from "@/components/PageTitleComponent.vue";
 
 export default {
   components: { NavBarComponent, ProductCardComponent, PageTitleComponent },
+  computed: {
+    goods() {
+      return this.$store.getters["getGoods"];
+    },
+  },
   data() {
     return {
       title: "For your pleasure",
-      goods: [
-        {
-          id: 0,
-          title: "Solimo goods Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-          img: "good-1.jpg",
-        },
-        {
-          id: 1,
-          title: "Presto goods Beans 1kg",
-          country: "Brazil",
-          price: 15.99,
-          img: "good-1.jpg",
-        },
-        {
-          id: 2,
-          title: "AROMISTICO goods 1kg",
-          country: "Brazil",
-          price: 6.99,
-          img: "good-1.jpg",
-        },
-        {
-          id: 3,
-          title: "Solimo goods Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-          img: "good-1.jpg",
-        },
-        {
-          id: 4,
-          title: "Solimo goods Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-          img: "good-1.jpg",
-        },
-        {
-          id: 5,
-          title: "Solimo goods Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-          img: "good-1.jpg",
-        },
-      ],
     };
   },
 };
