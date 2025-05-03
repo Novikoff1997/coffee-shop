@@ -42,15 +42,14 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card-component
-                v-for="good in goods"
-                :key="good.id"
+                v-for="card in goods"
+                :key="card.id"
                 classItem="shop__item"
-                :title="good.title"
-                :price="good.price"
-                :img="good.img"
+                :card="card"
+                @onNavigate="navigate"
               >
                 <template v-slot:country>
-                  <div class="shop__item-country">{{ good.country }}</div>
+                  <div class="shop__item-country">{{ card.country }}</div>
                 </template>
               </product-card-component>
             </div>
@@ -65,6 +64,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCardComponent from "@/components/ProductCardComponent.vue";
 import PageTitleComponent from "@/components/PageTitleComponent.vue";
+import { navigate } from "@/mixins/navigate";
 
 export default {
   components: { NavBarComponent, ProductCardComponent, PageTitleComponent },
@@ -76,7 +76,9 @@ export default {
   data() {
     return {
       title: "For your pleasure",
+      name: "goods",
     };
   },
+  mixins: [navigate],
 };
 </script>

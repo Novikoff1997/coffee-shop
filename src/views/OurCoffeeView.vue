@@ -58,15 +58,14 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card-component
-                v-for="coffee in coffee"
-                :key="coffee.id"
+                v-for="card in coffee"
+                :key="card.id"
                 classItem="shop__item"
-                :title="coffee.title"
-                :price="coffee.price"
-                :img="coffee.img"
+                :card="card"
+                @onNavigate="navigate"
               >
                 <template v-slot:country>
-                  <div class="shop__item-country">{{ coffee.country }}</div>
+                  <div class="shop__item-country">{{ card.country }}</div>
                 </template>
               </product-card-component>
             </div>
@@ -81,6 +80,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCardComponent from "@/components/ProductCardComponent.vue";
 import PageTitleComponent from "@/components/PageTitleComponent.vue";
+import { navigate } from "@/mixins/navigate";
 
 export default {
   components: { NavBarComponent, ProductCardComponent, PageTitleComponent },
@@ -94,7 +94,9 @@ export default {
   data() {
     return {
       title: "Our Coffee",
+      name: "coffee",
     };
   },
+  mixins: [navigate],
 };
 </script>

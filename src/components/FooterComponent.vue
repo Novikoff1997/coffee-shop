@@ -23,6 +23,7 @@
   </footer>
 </template>
 
+
 <script>
 import links from "@/store/links";
 import NavLinkComponent from "./NavLinkComponent.vue";
