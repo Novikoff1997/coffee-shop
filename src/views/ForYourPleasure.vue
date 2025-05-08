@@ -40,7 +40,8 @@
 
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <div class="shop__wrapper">
+            <spiner-component v-if="getIsLoading" />
+            <div class="shop__wrapper" v-else>
               <product-card-component
                 v-for="card in goods"
                 :key="card.id"
@@ -64,14 +65,24 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCardComponent from "@/components/ProductCardComponent.vue";
 import PageTitleComponent from "@/components/PageTitleComponent.vue";
+import SpinerComponent from "@/components/SpinerComponent.vue";
+
 import { navigate } from "@/mixins/navigate";
+import isLoading from "@/mixins/isLoading";
 
 export default {
-  components: { NavBarComponent, ProductCardComponent, PageTitleComponent },
+  components: { NavBarComponent, ProductCardComponent, PageTitleComponent, SpinerComponent },
   computed: {
     goods() {
       return this.$store.getters["getGoods"];
     },
+  },
+  async mounted() {
+    await this.runSpinner(async () => {
+      const response = await fetch("http://localhost:3000/goods");
+      const data = await response.json();
+      this.$store.dispatch("setGoodsData", data);
+    });
   },
   data() {
     return {
@@ -79,6 +90,6 @@ export default {
       name: "goods",
     };
   },
-  mixins: [navigate],
+  mixins: [navigate, isLoading],
 };
 </script>
