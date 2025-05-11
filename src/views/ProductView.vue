@@ -57,7 +57,7 @@ export default {
 
   async mounted() {
     await this.runSpinner(async () => {
-      const response = await fetch(`http://localhost:3000/${this.$route.name}/${this.$route.params.id}`);
+      const response = await fetch(`http://localhost:3000/${this.pageName}/${this.$route.params.id}`);
       const data = await response.json();
       this.$store.dispatch("setProductData", data);
     });
